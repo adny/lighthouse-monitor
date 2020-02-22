@@ -1,6 +1,5 @@
 environment:
   matrix:
-    - nodejs_version: '10'
     - nodejs_version: '12'
 
 version: '{build}'
@@ -11,13 +10,13 @@ cache:
 install:
   - ps: Install-Product node $env:nodejs_version
   - node --version
-  - npm --version
-  - npm install
+  - yarn --version
+  - yarn install
 
 test_script:
-  - npm test
-  - npm run cov:send
-  - npm run cov:check
+  - yarn test
+  - yarn run cov:send
+  - yarn run cov:check
 
 build: off
 deploy: off
